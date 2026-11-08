@@ -8,9 +8,9 @@ description: 主题包位置、与插件的区别及加载方式
 ## 主题目录结构（示例）
 
 ```text
-appearance/themes/my-theme/
+data/themes/my-theme/
 ├── theme.json          # 必需：清单
-├── theme.css           # 常见样式入口
+├── theme.css           # 必需：样式入口
 ├── theme.js            # 可选（上架策略请以集市为准）
 ├── preview.png         # 集市预览（发布需要）
 ├── icon.png
@@ -19,15 +19,15 @@ appearance/themes/my-theme/
 
 本地路径：
 
-**`{工作空间}/appearance/themes/<主题目录名>/`**
+**`{工作空间}/data/themes/<主题目录名>/`**
 
-内置 **`daylight`**、**`midnight`** 也可在该目录下与用户主题并存。
+内置 **`daylight`**、**`midnight`** 属于应用自带资源，不在该目录（位于 `{工作空间}/conf/appearance/themes/`），也不会出现在第三方主题的扫描结果里。
 
 ---
 
 ## theme.json 与列表展示
 
-思源启动时会扫描各主题子目录下的 **`theme.json`**，并根据 **`modes`** 把主题归入亮色列表或暗色列表（内置 `daylight` / `midnight` 有特殊处理）。展示名可来自 **`displayName`** 的多语言字段。
+思源启动时会扫描各主题子目录下的 **`theme.json`**，并根据 **`modes`** 把主题归入亮色列表或暗色列表（内置 `daylight` / `midnight` 有特殊处理）。缺 `theme.css` 或 `modes` 为空的主题会被忽略，因此两者都应视为必填。展示名可来自 **`displayName`** 的多语言字段。
 
 ---
 

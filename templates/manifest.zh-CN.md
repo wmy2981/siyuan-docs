@@ -21,4 +21,4 @@ description: 模板包清单字段
 ## 相关接口
 
 - `/api/template/render`：渲染并插入（参见 [模板包开发](./overview.zh-CN.md)）
-- `/api/template/renderSprig`：与 Sprig 函数库相关的渲染（见 `API.md`）
+- `/api/template/renderSprig`：与 Sprig 函数库相关的渲染（见 `docs/API.zh-CN.md`）

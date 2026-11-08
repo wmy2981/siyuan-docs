@@ -49,12 +49,12 @@ my-plugin/
 ├── src/
 │   └── index.ts              # export default class extends Plugin
 ├── i18n/
-│   ├── zh_CN.json
-│   └── en_US.json
+│   ├── zh-CN.json
+│   └── en.json
 ├── icon.png                  # 集市展示
 ├── preview.png
 ├── README.md
-└── README_zh_CN.md
+└── README.zh-CN.md
 ```
 
 构建产物 **`index.js`、`index.css`** 出现在仓库根目录（取决于 webpack 配置）。
@@ -75,7 +75,7 @@ export default class MyPlugin extends Plugin {
 }
 ```
 
-对应在 **`i18n/zh_CN.json`** 增加 **`hello`** 字段测试国际化链路。
+对应在 **`i18n/zh-CN.json`** 增加 **`hello`** 字段测试国际化链路。
 
 ---
 

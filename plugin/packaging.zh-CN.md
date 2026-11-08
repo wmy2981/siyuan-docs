@@ -25,9 +25,9 @@ pnpm run build
 | **`index.js`** | 打包入口（必需） |
 | **`index.css`** | 样式；无样式时是否仍需空文件取决于构建脚本 |
 | **`i18n/*.json`** | 若插件声明多语言界面 |
-| **`icon.png`** | 建议约 **160×160**，体积须 **≤ 20 KB**（集市 CI 校验） |
-| **`preview.png`** | 建议约 **1024×768**，体积须 **≤ 200 KB**（集市 CI 校验） |
-| **`README.md`** / **`README_zh_CN.md`** | 详情页说明；语言映射写在 `plugin.json` 的 **`readme`** |
+| **`icon.png`**（或清单 `icon` 指向的文件） | 建议约 **160×160**，体积须 **≤ 64 KiB**（集市 CI 校验） |
+| **`preview.png`**（或清单 `preview` 指向的文件） | 建议约 **1024×768**，体积须 **≤ 512 KiB**（集市 CI 校验） |
+| **`README.md`** / **`README.zh-CN.md`** | 详情页说明；语言映射写在 `plugin.json` 的 **`readme`** |
 
 不要把 **`node_modules`**、**源码 `.ts`**、未处理的 **`src/`** 打进 zip（除非你有意开源完整源码包——那是另一类分发方式）。
 

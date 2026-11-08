@@ -82,4 +82,4 @@ description: 主题如何通过 --b3- 变量覆盖界面
 
 ## 6. 与本文档站的区别
 
-本静态文档站（siyuan-docs）使用自有 **`global.css`**，变量命名与客户端**不一定一致**。请以思源仓库 **`appearance/themes`** 为准。
+本静态文档站（siyuan-docs）使用自有 **`global.css`**，变量命名与客户端**不一定一致**。请以思源仓库的内置主题源码 **`app/appearance/themes`**（以及工作空间内的 `conf/appearance/themes`、第三方 `data/themes`）为准。

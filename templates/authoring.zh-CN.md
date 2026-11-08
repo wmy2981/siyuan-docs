@@ -29,7 +29,7 @@ description: .action{} 模板、可用变量与调试建议
 
 ## 与 `/api/template/renderSprig` 的关系
 
-另有 **`/api/template/renderSprig`** 接口用于 Sprig 函数库场景（见 `API.md`）。插件或脚本若直接拼 HTTP 请求，请区分二者参数与适用场景。
+另有 **`/api/template/renderSprig`** 接口用于 Sprig 函数库场景（见 `docs/API.zh-CN.md`）。插件或脚本若直接拼 HTTP 请求，请区分二者参数与适用场景。
 
 ## 调试建议
 

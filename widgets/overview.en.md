@@ -36,4 +36,4 @@ Prefer **plugins** for deep editor and data integration; **widgets** for sandbox
 
 ## Next steps
 
-- [widget.json](./manifest.en.md)
+- [widget.json](./manifest.zh-CN.md)

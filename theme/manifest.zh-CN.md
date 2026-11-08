@@ -35,13 +35,13 @@ description: 主题清单字段与模式
 "modes": ["light", "dark"]
 ```
 
-思源会根据 **`modes`** 把主题加入对应列表（内置 `daylight` / `midnight` 仍有特殊分支，勿以此推断第三方主题的排序细节）。
+思源会根据 **`modes`** 把主题加入对应列表（内置 `daylight` / `midnight` 仍有特殊分支，勿以此推断第三方主题的排序细节）。**`modes` 实质必填**：数组为空或字段缺失时，主题既不会进入亮色列表也不会进入暗色列表，在设置里完全看不到。
 
 ## 与插件清单的异同
 
 主题与插件在集市侧都带有 **`name`、`author`、`url`、`version`、`minAppVersion`（若有）、`displayName`、`description`、`readme`、`funding`、`keywords`** 等通用字段；主题**特有**的是 **`modes`**（数组，元素为 **`light`** / **`dark`**），用于声明适用的配色模式。
 
-插件使用 **`backends` / `frontends`**；主题不使用这两项。
+插件使用 **`backends` / `frontends`**；主题同样会声明 **`frontends`**（内置 `daylight` / `midnight` 为 `["all"]`，用于限制主题可用的前端形态），但不使用 `backends`。
 
 打包体积、图标与预览图要求可参考集市发布说明；**请勿以本文作为集市校验的唯一依据**，发布前对照官方当前要求。
 

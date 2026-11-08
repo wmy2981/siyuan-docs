@@ -10,8 +10,8 @@ SiYuan’s **marketplace** distributes several kinds of **extension packages**. 
 | Type | Manifest | Default install path (under workspace) | Typical use |
 | --- | --- | --- | --- |
 | **Plugin** | `plugin.json` | `data/plugins/<name>/` | Scripts for editor, commands, Dock, **HTTP API** |
-| **Theme** | `theme.json` | `appearance/themes/<name>/` | `theme.css` and related styling |
-| **Icon pack** | `icon.json` | `appearance/icons/<name>/` | Icon assets selectable in Settings |
+| **Theme** | `theme.json` | `data/themes/<name>/` | `theme.css` and related styling |
+| **Icon pack** | `icon.json` | `data/icons/<name>/` | Icon assets selectable in Settings |
 | **Template** | `template.json` | `data/templates/<name>/` | Markdown / template snippets inserted into docs |
 | **Widget** | `widget.json` | `data/widgets/<name>/` | Static HTML/JS/CSS pages in an iframe |
 
@@ -19,7 +19,7 @@ The table lists default locations; search the SiYuan repo for install logic if y
 
 ## Shared metadata (`Package`)
 
-These fields are **common** across types (themes add `modes`; plugins add `backends`, `frontends`, etc.). Parsing and display apply HTML escaping to reduce XSS (`ParsePackageJSON` / `sanitizePackageDisplayStrings`).
+These fields are **common** across types (themes add `modes`; plugins add `backends`, `kernels`, etc.). The online marketplace index HTML-escapes display fields to reduce XSS; the client restores the original text with `unescapePackageDisplayStrings` when reading the online index. Local manifests are not affected.
 
 | Field | Meaning |
 | --- | --- |
@@ -34,20 +34,21 @@ These fields are **common** across types (themes add `modes`; plugins add `backe
 | `funding` | Sponsorship info |
 | `keywords` | Marketplace search keywords |
 | `disabledInPublish` | Disabled on publish service (plugins, etc.) |
-| `backends` / `frontends` | **Plugin-only**: allowed backend/frontend environments |
+| `backends` | **Plugin-only**: allowed backend environments |
 
 Theme-only:
 
 | Field | Meaning |
 | --- | --- |
-| `modes` | Array of `light` and/or `dark`; see [Theme manifest](../theme/manifest.en.md) |
+| `modes` | Array of `light` and/or `dark`; see [Theme manifest](../theme/manifest.zh-CN.md) |
 
-Plugin-only (excerpt; full table in [plugin.json](../plugin/manifest.en.md)):
+Plugin-related fields (excerpt; full table in [plugin.json](../plugin/manifest.zh-CN.md)):
 
 | Field | Meaning |
 | --- | --- |
 | `backends` | `windows`, `linux`, `darwin`, `docker`, `android`, `ios`, `harmony`, `all` |
-| `frontends` | `desktop`, `desktop-window`, `mobile`, `browser-desktop`, `browser-mobile`, `all` |
+| `frontends` | `desktop`, `desktop-window`, `mobile`, `browser-desktop`, `browser-mobile`, `all`; **themes may declare it too** (built-in `daylight` / `midnight` use `["all"]`) |
+| `kernels` | Backend environments for the plugin's kernel part (`kernel.js`); same values as `backends` |
 | `disabledInPublish` | Disabled in publish mode |
 
 ## Install and load (concept)
@@ -57,9 +58,9 @@ Plugin-only (excerpt; full table in [plugin.json](../plugin/manifest.en.md)):
 
 ## Relation to community marketplace indexes
 
-Indexing and publishing may change; **do not** treat this page as the only listing guide. Expect a repo **Release**, a **`package.zip`** asset, valid manifest fields, and assets that meet size rules. See [Publishing and versions](./publishing.en.md).
+Indexing and publishing may change; **do not** treat this page as the only listing guide. Expect a repo **Release**, a **`package.zip`** asset, valid manifest fields, and assets that meet size rules. See [Publishing and versions](./publishing.zh-CN.md).
 
 ## Next steps
 
-- [Publishing and versions](./publishing.en.md)
+- [Publishing and versions](./publishing.zh-CN.md)
 - Per-type docs: [Plugins](../plugin/overview.en.md), [Themes](../theme/overview.en.md), [Icon packs](../icons/overview.en.md), [Templates](../templates/overview.en.md), [Widgets](../widgets/overview.en.md)

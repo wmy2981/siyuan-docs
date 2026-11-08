@@ -5,7 +5,7 @@ description: 本地请求约定、鉴权、文件读写与日记属性
 
 思源通过**本地 HTTP 服务**提供 **API**（默认 **`http://127.0.0.1:6806`**，端口可随用户设置变化）。插件与其它前端代码应通过 **`fetchPost`** 等封装访问，**不要**在渲染进程用 Node **`fs`** 直接改 `{工作空间}/data`。
 
-权威手册：**[API.md](https://github.com/siyuan-note/siyuan/blob/master/API.md)** / **[API_zh_CN.md](https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md)**。
+权威手册：**[docs/API.md](https://github.com/siyuan-note/siyuan/blob/master/docs/API.md)** / **[docs/API.zh-CN.md](https://github.com/siyuan-note/siyuan/blob/master/docs/API.zh-CN.md)**。
 
 ---
 
@@ -19,7 +19,7 @@ description: 本地请求约定、鉴权、文件读写与日记属性
 
 ### 鉴权
 
-在 **设置 → 关于** 查看 **API Token**。请求头增加：
+在 **设置 → 鉴权** 查看并设置 **API token**（`api.token`）。请求头增加：
 
 ```http
 Authorization: Token <你的 Token>
@@ -31,7 +31,7 @@ Authorization: Token <你的 Token>
 
 ## 2. API 主题索引（便于检索）
 
-下列条目对应 `API.md` 目录，便于按业务查找（具体路径与参数以仓库为准）。
+下列条目对应官方 `docs/API.md` / `docs/API.zh-CN.md` 目录，便于按业务查找（具体路径与参数以仓库为准）。
 
 | 章节 | 示例接口 |
 | --- | --- |
@@ -42,7 +42,7 @@ Authorization: Token <你的 Token>
 | 属性 | `/api/attr/setBlockAttrs`、`getBlockAttrs` |
 | SQL | `/api/query/sql` |
 | 模板 | `/api/template/render`、`/api/template/renderSprig` |
-| 文件 | `/api/file/getFile`、`putFile`、`removeFile`、`listFiles` |
+| 文件 | `/api/file/getFile`、`putFile`、`removeFile`、`readDir`（列目录需管理员权限） |
 | 导出 | `/api/export/exportMd`、`exportResources` 等 |
 | 其它 | 通知、代理、系统信息等 |
 

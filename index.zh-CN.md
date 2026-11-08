@@ -3,7 +3,7 @@ title: 首页
 description: 面向思源笔记插件、集市包与主题作者的完整入口
 ---
 
-本手册面向需要为**思源笔记**开发**插件、主题、图标包、模板包、挂件**，或需要查阅**本地 HTTP API**（见官方仓库 `API.md`）的开发者。行文上遵循清晰标题、表格化字段说明、可运行的代码示例（可参考本站摘录的技术写作原则：`reference/write/software-documentation-guide/`）。
+本手册面向需要为**思源笔记**开发**插件、主题、图标包、模板包、挂件**，或需要查阅**本地 HTTP API**（见官方仓库 [`docs/API.zh-CN.md`](https://github.com/siyuan-note/siyuan/blob/master/docs/API.zh-CN.md)）的开发者。行文上遵循清晰标题、表格化字段说明、可运行的代码示例。
 
 内容依据：**思源笔记开源仓库**、**官方 plugin-sample**；集市索引与上架流程若变更，以官方公告为准。
 
@@ -36,7 +36,7 @@ description: 面向思源笔记插件、集市包与主题作者的完整入口
 
 | 页面 | 说明 |
 | --- | --- |
-| [主题概览](./theme/overview.zh-CN.md) | `appearance/themes`、与插件区别 |
+| [主题概览](./theme/overview.zh-CN.md) | `data/themes`、与插件区别 |
 | [theme.json](./theme/manifest.zh-CN.md) | `modes`、清单字段 |
 | [样式与 CSS 变量](./theme/styling.zh-CN.md) | `--b3-*` 变量与定制步骤 |
 
@@ -44,7 +44,7 @@ description: 面向思源笔记插件、集市包与主题作者的完整入口
 
 | 页面 | 说明 |
 | --- | --- |
-| [图标包](./icons/overview.zh-CN.md) | `appearance/icons`、`icon.json` |
+| [图标包](./icons/overview.zh-CN.md) | `data/icons`、`icon.json` |
 | [模板包](./templates/overview.zh-CN.md) | `data/templates`、`/api/template/render` |
 | [模板语法](./templates/authoring.zh-CN.md) | `.action{}` Go 模板 |
 | [挂件](./widgets/overview.zh-CN.md) | `data/widgets`、`/widgets/` iframe |
@@ -56,7 +56,7 @@ description: 面向思源笔记插件、集市包与主题作者的完整入口
 | 资源 | 链接 |
 | --- | --- |
 | 思源主程序源码 | [github.com/siyuan-note/siyuan](https://github.com/siyuan-note/siyuan) |
-| HTTP API 手册 | [API_zh_CN.md](https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md) |
+| HTTP API 手册 | [docs/API.zh-CN.md](https://github.com/siyuan-note/siyuan/blob/master/docs/API.zh-CN.md) |
 | 官方插件示例 | [github.com/siyuan-note/plugin-sample](https://github.com/siyuan-note/plugin-sample) |
 | npm `siyuan`（类型与导出） | 版本需与目标思源匹配，见示例工程 `package.json` |
 
@@ -76,4 +76,4 @@ description: 面向思源笔记插件、集市包与主题作者的完整入口
 
 ## 英文版
 
-中文版稳定后，将翻译并维护 `developers/en/`，目录与本站导航对齐。
+英文页面与中文页面放在同一目录（如 `plugin/overview.en.md` 与 `plugin/overview.zh-CN.md`），文件名后缀为 `.en.md`；目前只有部分页面提供英文版本，可参见 [`nav.yml`](nav.yml) 与各目录下的 `*.en.md`。

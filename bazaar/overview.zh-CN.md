@@ -10,8 +10,8 @@ description: 五类集市包、安装路径与通用元数据
 | 类型 | 清单文件 | 默认安装目录（工作空间下） | 典型用途 |
 | --- | --- | --- | --- |
 | **插件** | `plugin.json` | `data/plugins/<包名>/` | 脚本扩展编辑器、命令、Dock、与 **HTTP API** 交互 |
-| **主题** | `theme.json` | `appearance/themes/<包名>/` | `theme.css` 等覆盖界面样式 |
-| **图标包** | `icon.json` | `appearance/icons/<包名>/` | 图标资源，在设置中选用的图标方案 |
+| **主题** | `theme.json` | `data/themes/<包名>/` | `theme.css` 等覆盖界面样式 |
+| **图标包** | `icon.json` | `data/icons/<包名>/` | 图标资源，在设置中选用的图标方案 |
 | **模板** | `template.json` | `data/templates/<包名>/` | 插入文档时使用的 Markdown / 模板片段 |
 | **挂件** | `widget.json` | `data/widgets/<包名>/` | 以 iframe 嵌入文档的静态页面（HTML/JS/CSS） |
 
@@ -19,7 +19,7 @@ description: 五类集市包、安装路径与通用元数据
 
 ## 通用元数据字段（`Package`）
 
-下列字段在各类包中**共用**（主题额外有 `modes`；插件额外有 `backends`、`frontends` 等）。解析与展示时会做 HTML 转义以防 XSS（`ParsePackageJSON` / `sanitizePackageDisplayStrings`）。
+下列字段在各类包中**共用**（主题额外有 `modes`；插件额外有 `backends`、`kernels` 等）。在线集市索引写入展示字段时会做 HTML 转义以防 XSS，客户端读取在线索引时由 `unescapePackageDisplayStrings` 还原为原文；本地清单不经过这一层。
 
 | 字段 | 含义 |
 | --- | --- |
@@ -34,7 +34,7 @@ description: 五类集市包、安装路径与通用元数据
 | `funding` | 赞助信息 |
 | `keywords` | 集市搜索关键词 |
 | `disabledInPublish` | 在发布服务中是否禁用（插件等） |
-| `backends` / `frontends` | **插件专用**：可用后端/前端环境 |
+| `backends` | **插件专用**：可用后端环境 |
 
 主题专有：
 
@@ -42,12 +42,13 @@ description: 五类集市包、安装路径与通用元数据
 | --- | --- |
 | `modes` | 字符串数组，元素为 `light` 和/或 `dark`，见 [主题 manifest](../theme/manifest.zh-CN.md) |
 
-插件专有（节选，完整见 [plugin.json](../plugin/manifest.zh-CN.md)）：
+插件相关字段（节选，完整见 [plugin.json](../plugin/manifest.zh-CN.md)）：
 
 | 字段 | 含义 |
 | --- | --- |
 | `backends` | `windows`、`linux`、`darwin`、`docker`、`android`、`ios`、`harmony`、`all` |
-| `frontends` | `desktop`、`desktop-window`、`mobile`、`browser-desktop`、`browser-mobile`、`all` |
+| `frontends` | `desktop`、`desktop-window`、`mobile`、`browser-desktop`、`browser-mobile`、`all`；**主题也可声明**（内置 `daylight` / `midnight` 为 `["all"]`） |
+| `kernels` | 插件内核部分（`kernel.js`）支持的后端环境，取值同 `backends` |
 | `disabledInPublish` | 发布模式下是否禁用 |
 
 ## 安装与加载（概念）

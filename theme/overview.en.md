@@ -8,9 +8,9 @@ SiYuan **themes** change how the app looks: colors, fonts, spacing, radius, main
 ## Example theme layout
 
 ```text
-appearance/themes/my-theme/
+data/themes/my-theme/
 ├── theme.json          # Required: manifest
-├── theme.css           # Common style entry
+├── theme.css           # Required: style entry
 ├── theme.js            # Optional (listing rules depend on the marketplace)
 ├── preview.png         # Marketplace preview (needed for publishing)
 ├── icon.png
@@ -19,21 +19,21 @@ appearance/themes/my-theme/
 
 On disk:
 
-**`{workspace}/appearance/themes/<theme-folder>/`**
+**`{workspace}/data/themes/<theme-folder>/`**
 
-Built-in **`daylight`** and **`midnight`** live alongside user themes in that tree.
+Built-in **`daylight`** and **`midnight`** are application resources, not part of that tree (they live in `{workspace}/conf/appearance/themes/`) and are not listed by the third-party theme scan.
 
 ---
 
 ## theme.json and picker lists
 
-At startup SiYuan scans each theme subfolder for **`theme.json`** and groups themes into light or dark lists from **`modes`** (built-in `daylight` / `midnight` have special handling). Display names can come from multilingual **`displayName`** fields.
+At startup SiYuan scans each theme subfolder for **`theme.json`** and groups themes into light or dark lists from **`modes`** (built-in `daylight` / `midnight` have special handling). A theme without `theme.css` or with empty `modes` is ignored, so treat both as required. Display names can come from multilingual **`displayName`** fields.
 
 ---
 
 ## Style entry
 
-The usual filename is **`theme.css`** (built-in `daylight` and `midnight` use it). Variables are mostly prefixed **`--b3-`**; see [Styling and CSS variables](./styling.en.md).
+The usual filename is **`theme.css`** (built-in `daylight` and `midnight` use it). Variables are mostly prefixed **`--b3-`**; see [Styling and CSS variables](./styling.zh-CN.md).
 
 ---
 
@@ -51,5 +51,5 @@ Themes own the visual system: **CSS variables + `.b3-*` component classes**. Whe
 
 ## Next steps
 
-- [theme.json](./manifest.en.md)
-- [Styling and CSS variables](./styling.en.md)
+- [theme.json](./manifest.zh-CN.md)
+- [Styling and CSS variables](./styling.zh-CN.md)

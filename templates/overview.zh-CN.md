@@ -3,7 +3,7 @@ title: 模板包开发
 description: 安装目录、template.json 与在文档中插入
 ---
 
-**模板**（Template）包用于在编辑时通过「斜杆菜单 → 模板」等入口，将一段**预置内容**插入到当前文档。内容文件放在工作空间 `data/templates` 下，由清单文件 `template.json` 声明 `Package` 元数据。
+**模板**（Template）包用于在编辑时通过「斜杠菜单 → 模板」等入口，将一段**预置内容**插入到当前文档。内容文件放在工作空间 `data/templates` 下，由清单文件 `template.json` 声明 `Package` 元数据。
 
 ## 工作空间路径
 
@@ -19,7 +19,7 @@ description: 安装目录、template.json 与在文档中插入
 
 简化理解：
 
-1. `path`：指向 `data/templates` 下某个 `.md` 模板文件。
+1. `path`：模板文件的**绝对路径**（通常位于 `data/templates` 下），见官方 `docs/API.zh-CN.md` 的 `/api/template/render` 一节。
 2. 构造数据模型（如当前标题、`title`、`name`、`alias`、`id` 等）。
 3. 执行模板 → 得到 Markdown → 解析为块树 → 插入编辑器。
 

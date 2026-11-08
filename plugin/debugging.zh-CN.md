@@ -13,14 +13,14 @@ description: 开发者工具、常见报错与排查顺序
 
 ## 插件脚本报错（加载阶段）
 
-加载器（**`app/src/plugin/loader.ts`**）在下列情况会 **`console.error`** 并中止：
+前端加载器（**`app/src/plugin/loader.ts`**）在下列情况会 **`console.error`** 并中止；最后一条由内核在日志中记录：
 
-| 日志片段 | 含义 | 处理 |
-| --- | --- | --- |
-| `plugin xxx run error` | `index.js` 执行抛错 | 检查语法、顶层是否访问了仅浏览器可用的 API、构建目标是否正确 |
-| `plugin xxx has no export` | 未提供 `export default` | 改为默认导出类 |
-| `plugin xxx does not extends Plugin` | 类未继承 `Plugin` | `class X extends Plugin` |
-| `plugin xxx js not found` | 客户端读不到 `index.js` | 确认路径为 `data/plugins/<包名>/index.js` 且已构建 |
+| 日志片段 | 出处 | 含义 | 处理 |
+| --- | --- | --- | --- |
+| `plugin xxx run error` | 前端 Console | `index.js` 执行抛错 | 检查语法、顶层是否访问了仅浏览器可用的 API、构建目标是否正确 |
+| `plugin xxx has no export` | 前端 Console | 未提供 `export default` | 改为默认导出类 |
+| `plugin xxx does not extends Plugin` | 前端 Console | 类未继承 `Plugin` | `class X extends Plugin` |
+| `plugin [xxx] index.js not found` | 内核日志 `temp/siyuan.log` | 内核读不到 `index.js` | 确认路径为 `data/plugins/<包名>/index.js` 且已构建 |
 
 ---
 
@@ -40,7 +40,7 @@ description: 开发者工具、常见报错与排查顺序
 
 - 插件请求应指向 **`127.0.0.1:<端口>`**（或你的 Docker 映射）。
 - 若返回 **401**，检查 **`Authorization: Token …`** 是否在 `fetchPost` 封装中自动带上（部分接口需要）。
-- **`code !== 0`** 时阅读 **`msg`**，对照 [HTTP API 与数据规范](./http-api.zh-CN.md) 与 `API_zh_CN.md`。
+- **`code !== 0`** 时阅读 **`msg`**，对照 [HTTP API 与数据规范](./http-api.zh-CN.md) 与官方 `docs/API.zh-CN.md`。
 
 ---
 

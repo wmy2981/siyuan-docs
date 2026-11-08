@@ -38,7 +38,7 @@ description: package.zip、GitHub Release 与上架注意事项
 
 ## 资源体积与合规（概念）
 
-集市 CI 对 **`icon.png`（≤ 20 KB）**、**`preview.png`（≤ 200 KB）** 有体积上限；主题可能对 **`theme.js`** 有新约束（例如新上架主题不得包含脚本）。发布前请阅读**当时**的集市校验规则或 Action 日志。
+集市 CI 对图标（清单 `icon` 字段，未声明时回退到包根 `icon.png`）限制 **≤ 64 KiB**，对预览图（`preview` 字段，未声明时回退到 `preview.png`）限制 **≤ 512 KiB**；主题可能对 **`theme.js`** 有额外约束。发布前请阅读**当时**的集市校验规则或 Action 日志。
 
 ## 本地验证
 

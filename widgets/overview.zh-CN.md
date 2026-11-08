@@ -11,7 +11,7 @@ description: widget.json、静态资源与 iframe 嵌入
 
 ## 编辑器如何嵌入
 
-在斜杆菜单选择挂件并选定某个包后，前端调用 **`hintRenderWidget`**（`app/src/protyle/hint/extend.ts`），插入类似：
+在斜杠菜单选择挂件并选定某个包后，前端调用 **`hintRenderWidget`**（`app/src/protyle/hint/extend.ts`），插入类似：
 
 ```html
 <iframe src="/widgets/<包名>/"

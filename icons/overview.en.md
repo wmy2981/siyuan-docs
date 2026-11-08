@@ -7,9 +7,9 @@ An **icon pack** bundles icon assets under a fixed folder; the manifest file **`
 
 ## Workspace path
 
-`{workspace}/appearance/icons/<package-name>/`
+`{workspace}/data/icons/<package-name>/`
 
-Like themes, icon packs live under `appearance`, not `data`. SiYuan scans subfolders, parses `icon.json`, and exposes selectable icon schemes in Settings.
+Like themes, icon packs live under `data`, not `appearance`; the built-in `litheness` pack is an application resource under `{workspace}/conf/appearance/icons/`. SiYuan scans subfolders, parses `icon.json`, and exposes selectable icon schemes in Settings.
 
 ## Manifest: icon.json
 
@@ -26,11 +26,11 @@ Built-in example: `app/appearance/icons/litheness/icon.json`:
 
 This matches the shared `Package` shape; you can add **`minAppVersion`**, **`displayName`**, **`description`**, **`readme`**, **`funding`**, **`keywords`**, etc., for marketplace display and search (see [Marketplace packages overview](../bazaar/overview.en.md)).
 
-There are **no** `modes` / `backends` / `frontends` fields for themes or plugins.
+An icon pack has **no** `modes` / `backends` / `frontends` fields; those belong to themes and plugins.
 
 ## Typical package contents
 
-Besides `icon.json`, actual icon files (format and naming) should follow built-in packs or official samples. Published zips usually also need **`icon.png`**, **`preview.png`**, **`README.md`**, etc.—follow current marketplace checks.
+Besides `icon.json`, an **`icon.js`** file is **required**: it declares each icon as a `<symbol id="...">`. A folder without `icon.js` is skipped by the kernel and never appears in Settings (the built-in `litheness` pack also ships just `icon.json`, `icon.js` and a license file). Other icon files (format and naming) should follow built-in packs or official samples. Published zips usually also need **`icon.png`**, **`preview.png`**, **`README.md`**, etc.—follow current marketplace checks.
 
 ## Icon packs vs emojis in notes
 
@@ -38,4 +38,4 @@ Changing the “icon scheme” in Settings is an appearance setting. If you only
 
 ## Next steps
 
-- [icon.json field reference](./manifest.en.md)
+- [icon.json field reference](./manifest.zh-CN.md)

@@ -3,14 +3,14 @@ title: 如何阅读与贡献本文档
 description: 技术写作原则与本仓库文档约定
 ---
 
-思源开发者文档面向「要能动手做出集市包、插件与主题」的读者，写法上对齐业界常见的技术文档实践（可参考本站 `reference/write/software-documentation-guide/` 下摘录的 [Docs principles](https://www.writethedocs.org/guide/writing/docs-principles/) 等资料）。
+思源开发者文档面向「要能动手做出集市包、插件与主题」的读者，写法上对齐业界常见的技术文档实践（可参考 [Docs principles](https://www.writethedocs.org/guide/writing/docs-principles/) 等资料）。
 
 ## 写作原则（摘要）
 
 - **先说明目标再展开细节**：每一章开头用一两段交代适用场景与前置知识。
 - **可扫读**：标题信息性强；列表与表格承载结构化内容；避免把关键步骤埋在长段落里。
-- **示例与参考并存**：教程类段落给「最小可运行」示例；API 类段落给字段表并指向源码或 `API.md`。
-- **承认版本差异**：思源与 **HTTP API** 会演进，涉及行为差异处请写明「以某版本起」或「见官方 `API.md` / 源码」。
+- **示例与参考并存**：教程类段落给「最小可运行」示例；API 类段落给字段表并指向源码或官方 `docs/API.zh-CN.md`。
+- **承认版本差异**：思源与 **HTTP API** 会演进，涉及行为差异处请写明「以某版本起」或「见官方 `docs/API.zh-CN.md` / 源码」。
 - **中英混排**：中文与英文、数字之间留空格（与本仓库代码注释规范一致）。
 - **站内相对链接**：按仓库文件路径写完整文件名（含 `.zh-CN.md` / `.en.md`），不要写网站 URL；构建时会改成网页路径。
 
@@ -46,4 +46,4 @@ description: 技术写作原则与本仓库文档约定
 
 ## 与 Obsidian 文档的类比
 
-Obsidian 开发者文档（本站 `reference/write/obsidian-developer-docs/`）习惯把「插件解剖」「发布流程」「事件」分章。思源插件模型不同（基于 **HTTP API** + `Plugin` 类 + Petal 加载），但**分层的思路可借鉴**：入门 → 清单 → 运行时 API → 调试与发布。
+Obsidian 开发者文档习惯把「插件解剖」「发布流程」「事件」分章。思源插件模型不同（基于 **HTTP API** + `Plugin` 类 + Petal 加载），但**分层的思路可借鉴**：入门 → 清单 → 运行时 API → 调试与发布。

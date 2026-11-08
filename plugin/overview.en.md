@@ -22,7 +22,7 @@ SiYuan **plugins** are also called **Petals**: JavaScript running in the **SiYua
    {workspace}/data/...
 ```
 
-Plugins are **not** arbitrary background scripts with full disk access; do **not** use **`require('fs')`** to edit raw files under the notebook tree—use the interfaces documented in **`API.md`**.
+Plugins are **not** arbitrary background scripts with full disk access; do **not** use **`require('fs')`** to edit raw files under the notebook tree—use the interfaces documented in the official **`docs/API.md`**.
 
 ---
 
@@ -38,7 +38,7 @@ SiYuan reads fixed filenames from the package:
 | --- | --- | --- |
 | **`index.js`** | Yes | Bundled output (webpack, esbuild, etc.); injected and executed in the frontend |
 | **`index.css`** | No | Injected when present |
-| **`plugin.json`** | Strongly recommended | Local and marketplace manifest (`Package` metadata), compatibility checks |
+| **`plugin.json`** | Yes | Local and marketplace manifest (`Package` metadata), compatibility checks; without a valid manifest the client skips the plugin |
 | **`i18n/*.json`** | No | Plugin UI strings |
 
 The entry file is **always `index.js`**; there is **no** `main` field in `plugin.json`.
@@ -91,6 +91,6 @@ There are also optional overrides such as **`updateProtyleToolbar`**, **`updateC
 
 ## Next steps
 
-1. [Quick start](./quickstart.en.md)
-2. [plugin.json](./manifest.en.md)
-3. [Frontend Plugin API](./frontend-api.en.md)
+1. [Quick start](./quickstart.zh-CN.md)
+2. [plugin.json](./manifest.zh-CN.md)
+3. [Frontend Plugin API](./frontend-api.zh-CN.md)

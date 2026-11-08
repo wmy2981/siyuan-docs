@@ -19,7 +19,7 @@ Pipeline implementation: **`RenderTemplate`** in the main repo. Sources are usua
 
 Simplified steps:
 
-1. `path`: points to an `.md` template under `data/templates`.
+1. `path`: the **absolute path** of the template file (usually under `data/templates`); see `/api/template/render` in `docs/API.md`.
 2. Build the data model (title, `title`, `name`, `alias`, `id`, etc.).
 3. Run the template → Markdown → block tree → insert into the editor.
 
@@ -40,5 +40,5 @@ Filenames only need to match whatever your insert UI can select; marketplace zip
 
 ## Next steps
 
-- [template.json](./manifest.en.md)
-- [Template syntax and authoring](./authoring.en.md)
+- [template.json](./manifest.zh-CN.md)
+- [Template syntax and authoring](./authoring.zh-CN.md)

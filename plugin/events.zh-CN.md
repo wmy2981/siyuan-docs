@@ -101,6 +101,8 @@ description: TEventBus 事件名与使用说明
 ## 示例
 
 ```ts
+import { Plugin } from "siyuan";
+
 export default class ListenSync extends Plugin {
 	private onEnd = (e: CustomEvent) => {
 		console.log("sync-end", e.detail);

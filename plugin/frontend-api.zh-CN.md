@@ -35,9 +35,9 @@ export default class MyPlugin extends Plugin {
 
 ## 2. 国际化 `this.i18n`
 
-启用插件时，思源会在插件目录下查找 **`i18n/<语言>.json`**（如 `zh_CN.json`、`en_US.json`），并与当前工作空间语言匹配，填充 **`this.i18n`**。
+启用插件时，思源会在插件目录下查找 **`i18n/<语言>.json`**（语言用 BCP 47 标签，如 `zh-CN.json`、`en.json`；旧的 `zh_CN.json` 仍可被回退命中），并与当前工作空间语言匹配，填充 **`this.i18n`**。
 
-**`src/i18n/zh_CN.json` 示例：**
+**`src/i18n/zh-CN.json` 示例：**
 
 ```json
 {
@@ -206,7 +206,7 @@ updateProtyleToolbar(toolbar) {
 }
 ```
 
-### 斜杆菜单 `protyleSlash`
+### 斜杠菜单 `protyleSlash`
 
 在插件类上赋值数组（类型见源码），每项包含 **`filter`**（搜索关键字）、**`html`**、**`id`**、**`callback(protyle, nodeElement)`**。
 
@@ -268,7 +268,7 @@ this.eventBus.off("sync-end", onSync);
 
 ## 13. 常用辅助导入（节选）
 
-从 **`siyuan`** 常导入：`showMessage`、`confirm`、`Dialog`、`Menu`、`openTab`、`openWindow`、`Protyle`、`getFrontend`、`getBackend`、`adaptHotkey`、`Constants`、`Files` 等，与 **`plugin-sample`** 顶部 import 列表对齐即可。
+从 **`siyuan`** 常导入：`showMessage`、`confirm`、`Dialog`、`Menu`、`openTab`、`openWindow`、`Protyle`、`getFrontend`、`getBackend`、`adaptHotkey`、`Constants`、`fetchPost`、`fetchSyncPost`、`Setting`、`getAllEditor` 等，与 **`plugin-sample`** 顶部 import 列表对齐即可。完整导出表见 `app/src/plugin/API.ts`（`Files` 之类的内部类不在其中，需要时从 `siyuan` 之外获取）。
 
 ---
 

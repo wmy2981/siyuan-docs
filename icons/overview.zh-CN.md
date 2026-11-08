@@ -7,9 +7,9 @@ description: icon.json、目录位置与使用场景
 
 ## 工作空间路径
 
-`{工作空间}/appearance/icons/<包名>/`
+`{工作空间}/data/icons/<包名>/`
 
-与主题类似，图标包位于 `appearance` 下，不在 `data` 内。思源会扫描子目录并解析 `icon.json`，在设置中提供可选图标方案。
+与主题相同，第三方图标包位于 `data` 下，不在 `appearance` 内；内置 `litheness` 属于应用自带资源，位于 `{工作空间}/conf/appearance/icons/`。思源会扫描子目录并解析 `icon.json`，在设置中提供可选图标方案。
 
 ## 清单文件 icon.json
 
@@ -30,7 +30,7 @@ description: icon.json、目录位置与使用场景
 
 ## 包内常见内容
 
-除 `icon.json` 外，实际图标资源文件（具体格式与命名）需与同仓库内置图标包或官方示例保持一致。上架 zip 通常还要求 **`icon.png`、`preview.png`、`README.md`** 等，以集市当前校验为准。
+除 `icon.json` 外，**必须**提供 **`icon.js`**（用 `<symbol id="...">` 定义各图标）；缺少 `icon.js` 的目录会被内核直接跳过，设置里不会出现该图标方案（内置 `litheness` 同样只有 `icon.json`、`icon.js` 与许可证文件）。其余图标资源的具体格式与命名需与内置图标包或官方示例保持一致。上架 zip 通常还要求 **`icon.png`、`preview.png`、`README.md`** 等，以集市当前校验为准。
 
 ## 与表情/资源的关系
 
